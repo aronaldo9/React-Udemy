@@ -17,15 +17,17 @@ import {
 } from "../../store/auth/thunks";
 import { useMemo } from "react";
 
+const formData = {
+  email: "",
+  password: "",
+};
+
 export const LoginPage = () => {
   const { status, errorMessage } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
-  const { email, password, onInputChange } = useForm({
-    email: "",
-    password: "",
-  });
+  const { email, password, onInputChange } = useForm(formData);
 
   const isAuthenticating = useMemo(() => status === "checking", [status]);
 
@@ -74,6 +76,7 @@ export const LoginPage = () => {
 
           <Grid2
             container
+            // eslint-disable-next-line no-extra-boolean-cast
             display={!!errorMessage ? "" : "none"}
             sx={{ mt: 1 }}
           >
