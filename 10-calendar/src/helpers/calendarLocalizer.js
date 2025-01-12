@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { format, getDay, parse, startOfWeek } from "date-fns";
 import esES from "date-fns/locale/es";
 import { dateFnsLocalizer } from "react-big-calendar";
